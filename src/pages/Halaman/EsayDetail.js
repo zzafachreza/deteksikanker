@@ -96,7 +96,7 @@ export default function EsayDetail({ navigation, route }) {
                                         fontFamily: fonts.primary[600],
                                         fontSize: 14,
                                         color: colors.black,
-                                    }}>{index + 1}</Text>
+                                    }}>{item.nomor}</Text>
                                     <Text style={{
                                         flex: 1,
                                         fontFamily: fonts.primary[600],

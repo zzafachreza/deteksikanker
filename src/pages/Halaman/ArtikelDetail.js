@@ -9,11 +9,13 @@ import { showMessage } from 'react-native-flash-message'
 import RenderHtml from 'react-native-render-html';
 import moment from 'moment'
 import YoutubePlayer from "react-native-youtube-iframe";
+import { WebView } from 'react-native-webview';
 export default function InformasiDetail({ navigation, route }) {
 
 
     const systemFonts = [fonts.primary[400], fonts.primary[600]];
     const item = route.params;
+    // console.log(webURL + 'artikel/detail/' + item.id)
     return (
         <SafeAreaView style={{
             flex: 1,
@@ -21,14 +23,22 @@ export default function InformasiDetail({ navigation, route }) {
             // padding: 10,
         }}>
             <MyHeader judul={item.judul} onPress={() => navigation.goBack()} />
-            <ScrollView showsVerticalScrollIndicator={false} style={{
+
+
+            <View style={{
+                // padding: 20,
+                flex: 1,
             }}>
+                {/* <Text style={{
+                    marginTop: 20,
+                    fontFamily: fonts.primary[800],
+                    fontSize: DimensionThisPhone / 15,
+                    color: colors.black,
+                    textAlign: 'center'
+                }}>{item.judul}</Text> */}
+                <WebView source={{ uri: webURL + 'artikel/detail/' + item.id }} style={{ flex: 1, backgroundColor: colors.background }} />
 
-                <View style={{
-                    padding: 20
-                }}>
-
-                    <YoutubePlayer
+                {/* <YoutubePlayer
                         width={'100%'}
                         height={210}
                         videoId={item.link_youtube}
@@ -40,21 +50,30 @@ export default function InformasiDetail({ navigation, route }) {
                             true;
                             `,
                         }}
-                    />
-                    <Text style={{
-                        marginTop: 20,
-                        fontFamily: fonts.primary[800],
-                        fontSize: DimensionThisPhone / 15,
-                        color: colors.black,
-                        textAlign: 'center'
-                    }}>{item.judul}</Text>
+                    /> */}
 
-                    <RenderHtml
+
+
+
+                {/* <RenderHtml
                         tagsStyles={{
                             p: {
                                 fontFamily: 'Poppins-Regular',
                                 textAlign: 'justify',
-                                lineHeight: 20,
+                                fontSize: 14,
+                                // lineHeight: 12,
+                            },
+                            div: {
+                                fontFamily: 'Poppins-Regular',
+                                textAlign: 'justify',
+                                fontSize: 14,
+                                // lineHeight: 12,
+                            },
+                            li: {
+                                fontFamily: 'Poppins-Regular',
+                                textAlign: 'justify',
+                                fontSize: 14,
+                                // lineHeight: 12,
                             },
                         }}
                         systemFonts={systemFonts}
@@ -62,12 +81,12 @@ export default function InformasiDetail({ navigation, route }) {
                         source={{
                             html: item.keterangan
                         }}
-                    />
+                    /> */}
 
 
-                </View>
+            </View>
 
-            </ScrollView>
+
         </SafeAreaView>
     )
 }

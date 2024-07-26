@@ -113,7 +113,7 @@ export default function Submenu({ navigation, route }) {
                             esay: 1,
                             quiz: 0,
                         })
-                    }} label={'Edukasi Deteksi Dini' + '\n' + ' Kanker Payudara'} img={require('../../assets/p2.png')} />
+                    }} label={'Edukasi Deteksi Dini' + '\n' + ' ' + TIPE} img={require('../../assets/p2.png')} />
                 </View>
 
                 <View style={{
